@@ -1,0 +1,22 @@
+<div class="detail-container">
+  <button class="close-btn" (click)="close()">&times;</button>
+
+  <div class="photo">
+    <img *ngIf="user.photoFileName" [src]="'http://yaduvanshisangathan.cloud' + user.photoFileName" alt="User Photo" />
+  </div>
+
+  <h2>{{ user.fullName }}</h2>
+
+  <p><strong>Phone:</strong> {{ user.phone }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Gender:</strong> {{ user.gender }}</p>
+  <p><strong>DOB:</strong> {{ user.dob | date:'dd/MM/yyyy' }}</p>
+  <p *ngIf="user.age"><strong>Age:</strong> {{ user.age }}</p>
+  <p *ngIf="user.education"><strong>Education:</strong> {{ user.education }}</p>
+  <p *ngIf="user.maritalStatus"><strong>Marital Status:</strong> {{ user.maritalStatus }}</p>
+  <!-- <p *ngIf="user.religion"><strong>Religion:</strong> {{ user.religion }}</p> -->
+  <p *ngIf="user.city"><strong>City:</strong> {{ user.city }}</p>
+  <p *ngIf="user.state"><strong>State:</strong> {{ user.state }}</p>
+  <p *ngIf="user.diet"><strong>Diet:</strong> {{ user.diet }}</p>
+  <p *ngIf="user.lifestyle"><strong>Lifestyle:</strong> {{ user.lifestyle }}</p>
+</div>

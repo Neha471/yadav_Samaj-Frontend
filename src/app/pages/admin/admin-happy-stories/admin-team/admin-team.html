@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input formControlName="fullName" placeholder="Full Name" required>
+  <input formControlName="role" placeholder="Role" required>
+  <input formControlName="email" placeholder="Email" required>
+  <input formControlName="phone" placeholder="Phone" required>
+  <textarea formControlName="about" placeholder="About"></textarea>
+  <input formControlName="city" placeholder="City">
+  <input formControlName="designation" placeholder="Designation">
+  <input type="number" formControlName="age" placeholder="Age">
+
+  <!-- Show current photo if editing -->
+  <div *ngIf="editMode && editingPhotoUrl" class="photo-preview">
+    <p>Current Photo:</p>
+    <img [src]="editingPhotoUrl" alt="Current Photo" width="150">
+  </div>
+
+  <input type="file" (change)="onPhotoSelected($event)">
+
+  <button type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
+  <button type="button" (click)="resetFormAndReload()">Reset</button>
+</form>
+
+<!-- Members Table -->
+<table>
+  <tr *ngFor="let member of members">
+    <td>{{ member.fullName }}</td>
+    <td>{{ member.role }}</td>
+    <td><img [src]="member.photoFileName ? getBackendUrl(member.photoFileName) : 'assets/img1.jpeg'" width="50"></td>
+    <td>
+      <button (click)="edit(member)">Edit</button>
+      <button (click)="delete(member)">Delete</button>
+    </td>
+  </tr>
+</table>

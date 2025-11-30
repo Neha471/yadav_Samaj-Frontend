@@ -1,0 +1,93 @@
+<div class="matrimonial-container">
+
+  <!-- 🔹 Navbar Tabs -->
+  <nav class="matrimonial-navbar">
+    <button [class.active]="activeTab === 'home'" (click)="setTab('home')">Home</button>
+    <button [class.active]="activeTab === 'active'" (click)="setTab('active')">Active Members</button>
+    <button [class.active]="activeTab === 'stories'" (click)="setTab('stories')">Happy Stories</button>
+    <button [class.active]="activeTab === 'profile'" (click)="setTab('profile')">My Profile</button>
+  </nav>
+
+  <h1 class="h1">Welcome to Yaduvanshi Family</h1>
+
+  <!-- 🏠 HOME TAB -->
+  <div *ngIf="activeTab === 'home'" class="home-tab">
+    <!-- 🖼️ Banner Carousel -->
+    <div class="banner-carousel" *ngIf="banners?.length; else noBanner">
+      <div class="slide" *ngFor="let b of banners">
+        <img [src]="imageBaseUrl + b.imageUrl" [alt]="b.title">
+        <div class="banner-text">
+          <h2>{{ b.title }}</h2>
+          <p>{{ b.description }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template #noBanner>
+      <p class="no-data">No banners available</p>
+    </ng-template>
+
+    <!-- 📢 Ads Section -->
+    <div class="ads-section" *ngIf="ads?.length; else noAds">
+      <div class="ad" *ngFor="let ad of ads">
+        <img [src]="imageBaseUrl + ad.imageUrl" [alt]="ad.title">
+      </div>
+    </div>
+    <ng-template #noAds>
+      <p class="no-data">No ads available</p>
+    </ng-template>
+  </div>
+
+  <!-- 👥 ACTIVE MEMBERS -->
+  <div *ngIf="activeTab === 'active'" class="active-tab">
+    <h2>Active Matrimonial Members</h2>
+    <div *ngIf="users?.length; else noUsers">
+      <div class="profile-card" *ngFor="let user of users" (click)="openUserModal(user)">
+        <img [src]="imageBaseUrl + user.photoFileName" [alt]="user.fullName">
+        <h3>{{ user.fullName }}</h3>
+        <p>{{ user.city }}</p>
+      </div>
+    </div>
+    <ng-template #noUsers>
+      <p class="no-data">No active members found.</p>
+    </ng-template>
+  </div>
+
+  <!-- ❤️ HAPPY STORIES -->
+  <div *ngIf="activeTab === 'stories'" class="stories-tab">
+    <app-happy-story></app-happy-story>
+  </div>
+
+  <!-- 👤 PROFILE TAB -->
+  <div *ngIf="activeTab === 'profile'" class="profile-tab">
+    <app-profile></app-profile>
+  </div>
+
+  <!-- 🔹 Modal for User Details -->
+  <div class="profile-details" *ngIf="selectedUser">
+    <div class="modal-overlay" (click)="closeUserModal()"></div>
+    <div class="modal-content">
+      <button class="close-btn" (click)="closeUserModal()">✖ Back</button>
+      <img *ngIf="selectedUser.photoFileName" [src]="imageBaseUrl + selectedUser.photoFileName"
+        alt="{{ selectedUser.fullName }}" (click)="openFullImage(imageBaseUrl + selectedUser.photoFileName)">
+      <h2>{{ selectedUser.fullName }}</h2>
+      <p><strong>Age:</strong> {{ selectedUser.age }}</p>
+      <p><strong>Gender:</strong> {{ selectedUser.gender }}</p>
+      <p><strong>City:</strong> {{ selectedUser.city }}</p>
+      <p><strong>State:</strong> {{ selectedUser.state }}</p>
+      <p><strong>Education:</strong> {{ selectedUser.education }}</p>
+      <p><strong>Phone:</strong> {{ selectedUser.phone }}</p>
+      <p><strong>Marital Status:</strong> {{ selectedUser.maritalStatus }}</p>
+      <p><strong>Mother Tongue:</strong> {{ selectedUser.motherTongue }}</p>
+      <!-- <p><strong>Hobbies:</strong> {{ selectedUser.hobbies }}</p> -->
+      <p><strong>Diet:</strong> {{ selectedUser.diet }}</p>
+      <p><strong>Lifestyle:</strong> {{ selectedUser.lifestyle }}</p>
+    </div>
+  </div>
+
+  <!-- 🖼 Full Image Overlay -->
+  <div class="full-image-overlay" *ngIf="fullImageUrl" (click)="closeFullImage()">
+    <img [src]="fullImageUrl" alt="Full view">
+    <button class="close-btn-overlay" (click)="closeFullImage()">✖</button>
+  </div>
+
+</div>

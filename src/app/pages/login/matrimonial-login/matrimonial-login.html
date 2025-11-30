@@ -1,0 +1,28 @@
+<div class="login-card">
+  <!-- Image at top of card -->
+  <img src="wedding.jpg" alt="Matrimonial" class="card-image" />
+
+  <!-- Text & Form -->
+  <div class="card-content">
+    <h2>यादव मैट्रोनी में आपका स्वागत है</h2>
+    <p>हमारे भरोसेमंद मैट्रोनी प्लेटफ़ॉर्म के माध्यम से अपने लिए सही जीवनसाथी खोजें।</p>
+
+
+    <!-- Step 1: Phone -->
+    <form *ngIf="step === 1" [formGroup]="phoneForm" (ngSubmit)="sendOtp()">
+      <input formControlName="phone" placeholder="Enter your phone number" />
+      <button type="submit">Send OTP</button>
+    </form>
+
+    <!-- Step 2: OTP -->
+    <form *ngIf="step === 2" [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+      <input formControlName="otp" placeholder="Enter OTP" />
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    <div class="links">
+      <a routerLink="/matrimonial-register">New User? Register Here</a><br />
+      <a routerLink="/membership-login">Switch to Membership Login</a>
+    </div>
+  </div>
+</div>

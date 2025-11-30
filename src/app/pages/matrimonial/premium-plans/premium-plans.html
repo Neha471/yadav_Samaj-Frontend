@@ -1,0 +1,23 @@
+<div class="premium-container">
+  <div class="top-buttons">
+    <button class="back-btn" (click)="goBack()">← Back to home</button>
+    <button class="home-btn" (click)="goHome()">🏠 Matrimonial Home</button>
+  </div>
+
+  <h2>Premium Plans</h2>
+
+  <div class="plan-list">
+    <div class="plan-card" *ngFor="let plan of plans">
+      <h3>{{ plan.name }}</h3>
+      <p class="price">{{ plan.price }}</p>
+
+      <ul class="plan-features">
+        <li *ngFor="let line of plan.description.split('\n')">
+          <span class="check"></span> {{ line.trim() }}
+        </li>
+      </ul>
+
+      <button class="subscribe-btn" (click)="subscribe(plan)">Subscribe</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+  <footer class="footer" *ngIf="footerInfo">
+    <div class="footer-content">
+      <!-- <p>&copy; 2025 Yadav Samaj. All Rights Reserved.</p> -->
+
+      <div class="about-us">
+        <h4>About Us</h4>
+      <p>{{ footerInfo.about }}</p>
+
+      </div>
+
+      <div class="contact">
+        <h4>Contact</h4>
+        <p>Email: {{ footerInfo.email }}</p>
+        <p>Phone: {{ footerInfo.phone }}</p>
+        <p>Address: {{ footerInfo.address }}</p>
+      </div>
+
+      <div class="policies">
+        <h4>Policies</h4>
+        <ul>
+          <li><a routerLink="/terms" target="_blank">Terms & Conditions</a></li>
+          <li><a routerLink="/refund" target="_blank">Refund Policy</a></li>
+          <li><a routerLink="/privacy" target="_blank">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+
+  <div class="social-links">
+    <h4>Follow Us</h4>
+    <div class="icons-row">
+      <a [href]="footerInfo.facebook" target="_blank" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a [href]="footerInfo.instagram" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a [href]="footerInfo.whatsapp" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a [href]="footerInfo.google" target="_blank" class="google">
+        <i class="fab fa-google"></i>
+      </a>
+    </div>
+  </div>
+
+
+    </div>
+      <div class="footer-bottom">
+        <p>Powered by Even Technology</p>
+      </div>
+  </footer>

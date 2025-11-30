@@ -1,0 +1,104 @@
+<!-- 🌸 Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="yadavsamajlogo.jpg" alt="Logo">
+    <span>Yadav Matrimony</span>
+  </div>
+  <ul class="nav-links">
+    <li><a routerLink="/" class="active">Home</a></li>
+    <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/matrimonial-login">Login</a></li>
+    <li><a routerLink="/matrimonial-register">Register</a></li>
+  </ul>
+</nav>
+
+<!-- 💍 Hero Section -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Find Your Perfect Match</h1>
+    <p>Join the trusted community of Yadav Samaj Matrimony today!</p>
+    <p>अपना आदर्श साथी खोजें</p>
+    <button routerLink="/matrimonial-register" class="btn-primary">Get Started</button>
+  </div>
+  <div class="hero-image">
+    <img src="wedding.jpg" alt="Matrimony">
+  </div>
+</section>
+
+
+
+<!-- ❤️ Featured Profiles -->
+<section class="featured-profiles">
+  <h2>Featured Profiles</h2>
+  <div class="profile-card" *ngFor="let profile of featuredProfiles" (click)="selectProfile(profile)">
+    <img [src]="getPhotoUrl(profile)" alt="{{ profile.fullName }}">
+    <h3>{{ profile.fullName }}</h3>
+    <p>{{ profile.city }}</p>
+  </div>
+</section>
+
+<!-- 👤 Selected Profile Modal -->
+<div class="profile-details" *ngIf="selectedProfile">
+  <div class="modal-overlay" (click)="closeProfileModal()"></div>
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeProfileModal()">X</button>
+
+    <!-- 🖼 Profile Image Click to Enlarge -->
+    <img [src]="getPhotoUrl(selectedProfile)" alt="{{ selectedProfile.fullName }}"
+      (click)="openFullImage(getPhotoUrl(selectedProfile))">
+
+    <h2>{{ selectedProfile.fullName }}</h2>
+    <p><strong>Age:</strong> {{ selectedProfile.age || 'N/A' }}</p>
+    <p><strong>Gender:</strong> {{ selectedProfile.gender }}</p>
+    <p><strong>City:</strong> {{ selectedProfile.city }}</p>
+    <p><strong>Email:</strong> {{ selectedProfile.email }}</p>
+    <p><strong>Phone:</strong> {{ selectedProfile.phone }}</p>
+    <p><strong>Mother Tongue:</strong> {{ selectedProfile.motherTongue }}</p>
+    <p><strong>Religion:</strong> {{ selectedProfile.religion }}</p>
+    <p><strong>Education:</strong> {{ selectedProfile.education }}</p>
+    <p><strong>Marital Status:</strong> {{ selectedProfile.maritalStatus }}</p>
+    <p><strong>Diet:</strong> {{ selectedProfile.diet }}</p>
+    <p><strong>Lifestyle:</strong> {{ selectedProfile.lifestyle }}</p>
+  </div>
+</div>
+
+<!-- 🖼 Full Image Overlay -->
+<div class="full-image-overlay" *ngIf="fullImageUrl" (click)="closeFullImage()">
+  <img [src]="fullImageUrl" alt="Full view">
+</div>
+
+
+<section class="happy-stories">
+  <h2>Happy Stories</h2>
+  <div class="story-card" *ngFor="let story of happyStories">
+    <img *ngIf="story.photoUrl" [src]="'http://yaduvanshisangathan.cloud' + story.photoUrl" alt="{{ story.coupleName }}">
+    <h3>{{ story.coupleName }}</h3>
+    <p>{{ story.message }}</p>
+  </div>
+</section>
+
+
+<!-- 👔 Leadership Section -->
+<!-- 🏆 Leadership Team -->
+<div class="leadership-container" *ngIf="leadershipSections.length > 0">
+  <h2>Our Leadership</h2>
+  <div class="leader" *ngFor="let leader of leadershipSections">
+    <img [src]="'http://yaduvanshisangathan.cloud' + leader.imageUrl" alt="{{ leader.title }}" />
+    <h3>{{ leader.title }}</h3>
+    <p>{{ leader.description }}</p>
+  </div>
+</div>
+
+
+
+<!-- ❓ FAQs -->
+<section class="faqs">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item" *ngFor="let faq of faqs">
+    <h4>{{ faq.title }}</h4>
+    <p>{{ faq.description }}</p>
+  </div>
+</section>
+
+

@@ -1,0 +1,87 @@
+.login-card {
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+
+  .card-image {
+    width: 100%;
+    height: 250px; // fixed height to cover area
+    object-fit: cover; // image covers full area
+    object-position: center; // focus on center
+    display: block;
+    
+  }
+
+  .card-content {
+    padding: 20px;
+    text-align: center;
+
+    h2 {
+      font-size: 22px;
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 15px;
+
+      input {
+        padding: 10px 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 14px;
+        background-color: #d6336c;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: #b52a58;
+        }
+      }
+    }
+
+    .links {
+      font-size: 13px;
+
+      a {
+        color: #d6336c;
+        text-decoration: none;
+        margin: 5px 0;
+        display: inline-block;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    max-width: 90%;
+
+    .card-image {
+      height: 200px; // smaller height on mobile
+    }
+  }
+}

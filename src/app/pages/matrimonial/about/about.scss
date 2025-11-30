@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #800000;
+  color: #fff;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &.btn-register {
+        background: #fff;
+        color: #800000;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+      }
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.about-section {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h1 {
+    color: #800000;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+}
+
+footer {
+  background: #800000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}

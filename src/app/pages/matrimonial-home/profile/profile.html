@@ -1,0 +1,42 @@
+<div class="profile-container">
+  <h2>Update Profile</h2>
+
+  <label for="phone">Phone</label>
+  <input id="phone" [(ngModel)]="phone" placeholder="Enter your phone" />
+
+  <button (click)="loadUserDetails()" [disabled]="loading">
+    {{ loading ? 'Loading...' : 'Load Profile' }}
+  </button>
+
+  <!-- Show form only after user is loaded -->
+  <div *ngIf="user.id" class="user-form">
+    <form (ngSubmit)="updateProfile()">
+      <label>Full Name</label>
+      <input type="text" [(ngModel)]="user.fullName" name="fullName" />
+
+      <label>Email</label>
+      <input type="email" [(ngModel)]="user.email" name="email" />
+
+      <label>Date of Birth</label>
+      <input type="date" [(ngModel)]="user.dob" name="dob" />
+
+      <label>Gender</label>
+      <select [(ngModel)]="user.gender" name="gender">
+        <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+      </select>
+
+      <label>Membership Plan</label>
+      <select [(ngModel)]="user.membershipPlan" name="membershipPlan">
+        <option *ngFor="let plan of membershipPlans" [value]="plan.value">{{ plan.label }}</option>
+      </select>
+
+      <label>Photo</label>
+      <input type="file" (change)="onFileSelected($event)" />
+      <img *ngIf="photoPreview" [src]="photoPreview" width="100" height="100" />
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Updating...' : 'Update Profile' }}
+      </button>
+    </form>
+  </div>
+</div>

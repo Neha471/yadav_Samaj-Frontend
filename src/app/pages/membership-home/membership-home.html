@@ -1,0 +1,150 @@
+<div class="membership-container">
+
+  <!-- ---------- Navbar ---------- -->
+  <nav class="membership-navbar">
+    <ul>
+      <li [class.active]="activeTab==='dashboard'" (click)="setTab('dashboard')">🏠 Dashboard</li>
+      <li [class.active]="activeTab==='profile'" (click)="setTab('profile')">👤 Profile</li>
+      <li [class.active]="activeTab==='announcements'" (click)="setTab('announcements')">📢 Announcements</li>
+      <li [class.active]="activeTab==='events'" (click)="setTab('events')">🎉 Events</li>
+      <li [class.active]="activeTab==='activities'" (click)="setTab('activities')">🏆 Activities</li>
+      <li [class.active]="activeTab==='photos'" (click)="setTab('photos')">📷 Photos</li>
+      <li [class.active]="activeTab==='team'" (click)="setTab('team')">👥 Team</li>
+      <li [class.active]="activeTab==='donation'" (click)="setTab('donation')">💰 Donation</li>
+
+
+
+
+    </ul>
+  </nav>
+
+  <!-- ---------- Banner Slider ---------- -->
+<!-- ---------- Banner Slider (only on Dashboard) ---------- -->
+<div class="banner-wrapper" *ngIf="activeTab === 'dashboard'">
+  <div #bannerSlider class="banner-slider">
+    <div class="banner" *ngFor="let banner of banners">
+      <img [src]="sanitizeImageUrl(banner.imageUrl)" alt="Banner" />
+    </div>
+  </div>
+</div>
+
+  <!-- ---------- Dashboard Section ---------- -->
+  <div class="cards-section" *ngIf="activeTab==='dashboard'">
+    <!-- Membership Card -->
+    <div #membershipCard class="membership-card">
+      <div class="card-header">
+        <img src="yadavsamajlogo.jpg" alt="Logo" class="logo" />
+        <div class="header-text">
+          <h2>YADAV SAMAJ SADHYATA</h2>
+          <p>राष्ट्रीय यादव एकता परिषद्</p>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <img [src]="sanitizeImageUrl(member?.profilePhoto)" class="profile-pic" />
+        <div class="details">
+          <p><strong>Name:</strong> {{ member?.fullName || 'N/A' }}</p>
+          <p><strong>State:</strong> {{ member?.state || 'N/A' }}</p>
+          <p><strong>Membership ID:</strong> {{ member?.membershipNumber || member?.phone || 'N/A' }}</p>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button (click)="downloadCard()">⬇️ Download</button>
+        <button (click)="shareCard()">📤 Share</button>
+      </div>
+    </div>
+
+    <!-- Referral Card -->
+    <div class="referral-card">
+      <h3>Referral</h3>
+      <p><strong>Code:</strong> {{ member?.referralCode || 'N/A' }}</p>
+      <p><strong>Link:</strong> <span class="ref-link">{{ referralLink }}</span></p>
+      <button (click)="shareReferral()">Share Referral</button>
+    </div>
+  </div>
+
+  <!-- ---------- Profile Section ---------- -->
+  <div *ngIf="activeTab==='profile'" class="profile-section">
+    <app-profile></app-profile>
+  </div>
+<!-- ---------- Donation Section ---------- -->
+<div *ngIf="activeTab==='donation'" class="donation-section">
+  <app-donation></app-donation>
+</div>
+
+  <!-- ---------- Grid Section ---------- -->
+  <div class="grid-section" *ngIf="activeTab!=='dashboard' && activeTab!=='profile'">
+    <div *ngIf="activeTab==='announcements'" class="grid">
+      <div class="card" *ngFor="let item of announcements" (click)="openModal(item, announcements)">
+        <img *ngIf="item.imageUrl" [src]="sanitizeImageUrl(item.imageUrl)" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+<div *ngIf="activeTab==='photos'" class="photos-section">
+  <div class="grid">
+    <div class="card" *ngFor="let photo of photos" (click)="openModal(photo, photos)">
+      <img [src]="sanitizeImageUrl(photo.imageUrl)" alt="Photo" />
+      <h3>{{ photo.title || 'Photo' }}</h3>
+      <p>{{ photo.description || '' }}</p>
+    </div>
+  </div>
+</div>
+<!-- ---------- Team Section ---------- -->
+<!-- ---------- Team Section ---------- -->
+<!-- ---------- Team Section ---------- -->
+<div class="team-section" *ngIf="activeTab === 'team'">
+  <h2>Our Team</h2>
+
+  <div class="team-grid">
+    <div class="team-card" *ngFor="let member of teamMembers">
+      <div class="team-photo">
+        <img [src]="sanitizeImageUrl(member.photoFileName)" alt="{{ member.fullName }}" />
+      </div>
+
+      <div class="team-info">
+        <h3>{{ member.fullName }}</h3>
+        <p class="role">{{ member.role }}</p>
+        <p class="about" *ngIf="member.about">{{ member.about }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div *ngIf="activeTab==='events'" class="grid">
+      <div class="card" *ngFor="let item of events" (click)="openModal(item, events)">
+        <img *ngIf="item.imageUrl" [src]="sanitizeImageUrl(item.imageUrl)" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="activeTab==='activities'" class="grid">
+      <div class="card" *ngFor="let item of activities" (click)="openModal(item, activities)">
+        <img *ngIf="item.imageUrl" [src]="sanitizeImageUrl(item.imageUrl)" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- Modal ---------- -->
+<div class="modal" *ngIf="showModal">
+  <span class="close" (click)="closeModal()">&times;</span>
+  <span class="prev" (click)="prevImage()">&#10094;</span>
+  <span class="next" (click)="nextImage()">&#10095;</span>
+
+  <div class="modal-content-wrapper">
+    <!-- Use your existing sanitizeImageUrl() method -->
+    <img class="modal-content" [src]="sanitizeImageUrl(modalImages[currentIndex].imageUrl)" />
+    <div class="modal-caption">
+      <h3>{{ modalImages[currentIndex].title || 'Untitled' }}</h3>
+      <p>{{ modalImages[currentIndex].description || '' }}</p>
+    </div>
+  </div>
+</div>
+
+
+</div>

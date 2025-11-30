@@ -1,0 +1,118 @@
+/* Page heading */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #0077b6;
+    margin: 0.6rem auto 0;
+    border-radius: 2px;
+  }
+}
+
+/* Container holding all team members */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Each team item: image left, text right */
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Left side image */
+  .team-image {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 300px;
+      height: 300px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Right side text */
+  .team-details {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.5rem;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .role {
+      color: #0077b6;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 768px) {
+  .team-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+
+    .team-image {
+      margin-bottom: 1rem;
+      flex: unset;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .team-details {
+      text-align: center;
+    }
+  }
+}

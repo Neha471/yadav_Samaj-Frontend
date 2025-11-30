@@ -1,0 +1,18 @@
+<h2>{{ userType | titlecase }} Login</h2>
+
+<form *ngIf="step === 1" [formGroup]="phoneForm" (ngSubmit)="sendOtp()">
+  <input formControlName="phone" placeholder="Enter Phone" />
+  <button type="submit">Send OTP</button>
+</form>
+
+<form *ngIf="step === 2" [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+  <input formControlName="otp" placeholder="Enter OTP" />
+  <button type="submit">Verify OTP</button>
+</form>
+
+<div class="switch-type">
+  <a [routerLink]="['/login']" [queryParams]="{ redirect: 'matrimonial' }">Matrimonial Login</a> |
+  <a [routerLink]="['/login']" [queryParams]="{ redirect: 'membership' }">Membership Login</a>
+  <a routerLink="/membership-register" routerLinkActive="active">Membership Register</a>
+  <a routerLink="/matrimonial-register" routerLinkActive="active">Matrimonial Register</a>
+</div>

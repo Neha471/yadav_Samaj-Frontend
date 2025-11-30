@@ -1,0 +1,33 @@
+<div class="status-container">
+  <h2>Matrimonial Status Check</h2>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="text" [(ngModel)]="phone" placeholder="Enter your phone number" />
+  </div>
+
+  <div class="form-actions">
+    <button (click)="checkStatus()">Check Status</button>
+    <button (click)="goToPayment()">Proceed to Payment</button>
+  </div>
+
+  <div class="message" *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+
+  <div class="status-details" *ngIf="statusData">
+    <h3>Registration Details</h3>
+    <p><strong>Name:</strong> {{ statusData.fullName }}</p>
+    <p><strong>Phone:</strong> {{ statusData.phone }}</p>
+    <p><strong>Approval Status:</strong>
+      <span *ngIf="statusData.approved === true">Approved ✅</span>
+      <span *ngIf="statusData.approved === false">Rejected ❌</span>
+      <span *ngIf="statusData.approved === null">Pending ⏳</span>
+    </p>
+    <p *ngIf="statusData.paymentDone !== undefined">
+      <strong>Payment Status:</strong>
+      <span *ngIf="statusData.paymentDone">Completed ✅</span>
+      <span *ngIf="!statusData.paymentDone">Pending ⏳</span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="happy-stories-container">
+
+  <!-- Top Buttons -->
+  <div class="top-buttons">
+    <button class="back-btn" routerLink="/home">← Back to Home</button>
+    <button class="home-btn" routerLink="/matrimonial-home">🏠 Matrimonial Home</button>
+  </div>
+
+  <!-- Navigate to Submit Story -->
+  <div class="submit-story-btn">
+    <button routerLink="/submit-story">Submit Your Happy Story</button>
+  </div>
+
+  <hr>
+
+  <div class="story-list">
+    <h2>All Happy Stories</h2>
+    <div *ngFor="let story of stories" class="story-card">
+    <h3>{{ story.coupleName }}</h3>
+    <p>{{ story.message }}</p>
+    <img *ngIf="story.photoUrl" [src]="'http://yaduvanshisangathan.cloud' + story.photoUrl" alt="Happy Story Photo" width="200" />
+    </div>
+  </div>
+
+</div>

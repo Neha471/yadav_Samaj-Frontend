@@ -1,0 +1,25 @@
+<div class="payment-container">
+  <h2>💳 Payment Portal</h2>
+
+  <div class="input-section">
+    <input [(ngModel)]="phone" placeholder="Enter phone number" />
+    <select [(ngModel)]="userType">
+      <option value="MATRIMONIAL">Matrimonial</option>
+      <option value="MEMBERSHIP">Membership</option>
+    </select>
+    <button (click)="loadPaymentDetails()" [disabled]="loading">
+      {{ loading ? 'Checking...' : 'Check Payment Details' }}
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
+
+  <div *ngIf="paymentDetails" class="payment-card">
+    <h3>{{ paymentDetails.fullName }}</h3>
+    <p><strong>Type:</strong> {{ paymentDetails.userType }}</p>
+    <p><strong>Plan:</strong> {{ paymentDetails.membershipPlan }}</p>
+    <p><strong>Amount:</strong> ₹{{ paymentDetails.amount }}</p>
+
+    <button class="pay-btn" (click)="payNow()">Pay Now</button>
+  </div>
+</div>

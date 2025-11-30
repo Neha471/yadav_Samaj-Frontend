@@ -1,0 +1,28 @@
+<div class="login-card">
+  <!-- Image at top of card -->
+  <img src="img2.jpeg" alt="Membership" class="card-image" />
+
+  <!-- Text & Form -->
+  <div class="card-content">
+  <h2>यादव समाज सदस्यता में आपका स्वागत है</h2>
+  <p>हमारे समुदाय में शामिल हों और सामाजिक एकता, सहयोग और प्रगति में योगदान दें।</p>
+
+
+    <!-- Step 1: Phone -->
+    <form *ngIf="step === 1" [formGroup]="phoneForm" (ngSubmit)="sendOtp()">
+      <input formControlName="phone" placeholder="Enter your phone number" />
+      <button type="submit">Send OTP</button>
+    </form>
+
+    <!-- Step 2: OTP -->
+    <form *ngIf="step === 2" [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+      <input formControlName="otp" placeholder="Enter OTP" />
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    <div class="links">
+      <a routerLink="/membership-register">New User? Register Here</a><br />
+      <a routerLink="/matrimonial-login">Switch to Matrimonial Login</a>
+    </div>
+  </div>
+</div>

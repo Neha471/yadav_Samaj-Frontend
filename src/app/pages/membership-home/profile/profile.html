@@ -1,0 +1,69 @@
+<div class="profile-container">
+  <h2>Update Profile</h2>
+
+  <div class="photo-section">
+    <img [src]="imagePreview || 'http://yaduvanshisangathan.cloud/uploads/membership/default.png'" alt="Profile"
+      class="photo-preview" />
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+  </div>
+
+  <form (ngSubmit)="updateProfile()" #profileForm="ngForm">
+    <div class="form-grid">
+      <div>
+        <label>Full Name *</label>
+        <input type="text" [(ngModel)]="user.fullName" name="fullName" required />
+      </div>
+
+      <div>
+        <label>Gender *</label>
+        <div class="gender-group">
+          <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Male" /> Male</label>
+          <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Female" /> Female</label>
+          <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" [(ngModel)]="user.email" name="email" />
+      </div>
+
+      <div>
+        <label>Mobile</label>
+        <input type="text" [(ngModel)]="user.phone" name="phone" readonly />
+      </div>
+
+      <div>
+        <label>Date of Birth</label>
+        <input type="date" [(ngModel)]="user.dob" name="dob" />
+      </div>
+
+      <div>
+        <label>Address</label>
+        <input type="text" [(ngModel)]="user.address" name="address" />
+      </div>
+
+      <div>
+        <label>District</label>
+        <input type="text" [(ngModel)]="user.district" name="district" />
+      </div>
+
+      <div>
+        <label>State</label>
+        <input type="text" [(ngModel)]="user.state" name="state" />
+      </div>
+
+      <div>
+        <label>Membership Plan</label>
+        <select [(ngModel)]="user.membershipPlan" name="membershipPlan">
+          <option value="">Select</option>
+          <option value="1_MONTH">1 Month - ₹99</option>
+          <option value="LIFETIME">Lifetime - ₹499</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button type="submit" class="save-btn">Save Changes</button>
+  </form>
+</div>

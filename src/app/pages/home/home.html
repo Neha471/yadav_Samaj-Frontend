@@ -1,0 +1,87 @@
+<!-- 💻 BANNER SLIDER -->
+<div class="banner-slider" *ngIf="bannerSections.length > 0">
+  <div class="slide" *ngFor="let banner of bannerSections; let i = index" [class.active]="i === currentIndex">
+    <img [src]="getBackendUrl(banner.imageUrl)" alt="{{ banner.title }}" class="banner-image" />
+  <div class="banner-content">
+    <!-- Show title only if not empty -->
+    <h2 *ngIf="banner.title && banner.title.trim() !== ''">{{ banner.title }}</h2>
+
+    <!-- Show description only if exists -->
+    <p *ngIf="banner.description && banner.description.trim() !== ''">{{ banner.description }}</p>
+
+    <!-- Show button only if route exists -->
+    <a *ngIf="banner.route && banner.route.trim() !== ''" [routerLink]="banner.route" class="btn">Explore</a>
+  </div>
+
+  </div>
+
+  <button class="arrow prev" (click)="prevSlide()">&#10094;</button>
+  <button class="arrow next" (click)="nextSlide()">&#10095;</button>
+
+  <div class="dots">
+    <span *ngFor="let banner of bannerSections; let i = index" [class.active]="i === currentIndex"
+      (click)="goToSlide(i)"></span>
+  </div>
+</div>
+
+<!-- 💳 CARDS -->
+<div class="card-grid mt-5" *ngIf="cardSections.length > 0">
+  <div class="card" *ngFor="let card of cardSections" (click)="goToCard(card)">
+    <img *ngIf="card.imageUrl" [src]="getBackendUrl(card.imageUrl)" alt="{{ card.title }}" class="card-img" />
+    <div class="card-body">
+      <h5>{{ card.title }}</h5>
+      <p>{{ card.description }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- 💞 HAPPY STORIES -->
+<div class="carousel-container" *ngIf="stories.length > 0">
+  <h2>💞 Happy Stories 💞</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" (click)="scrollLeft('stories')">&#10094;</button>
+    <div #storiesContainer class="carousel">
+      <div class="story-card" *ngFor="let story of stories">
+        <img [src]="story.photoUrl ? getBackendUrl(story.photoUrl) : 'default-story.jpg'"
+          alt="{{ story.coupleName }}" />
+        <h4>{{ story.coupleName }}</h4>
+        <p>{{ story.message }}</p>
+      </div>
+    </div>
+    <button class="arrow right" (click)="scrollRight('stories')">&#10095;</button>
+  </div>
+</div>
+
+<!-- 👥 ACTIVE MEMBERS -->
+<div class="carousel-container" *ngIf="activeMembers.length > 0">
+  <h2>🌟 Active Members 🌟</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" (click)="scrollLeft('members')">&#10094;</button>
+    <div #membersContainer class="carousel">
+      <div class="member-card" *ngFor="let member of activeMembers" (click)="viewDetails(member)">
+        <img [src]="member.photoFileName ? getBackendUrl(member.photoFileName) : 'img1.jpeg'"
+          alt="{{ member.fullName }}" />
+        <h4>{{ member.fullName }}</h4>
+        <p>{{ member.age }} yrs | {{ member.city }}</p>
+      </div>
+    </div>
+    <button class="arrow right" (click)="scrollRight('members')">&#10095;</button>
+  </div>
+</div>
+
+<!-- 👥 TEAM MEMBERS -->
+<div class="carousel-container" *ngIf="activeTeam.length > 0">
+  <h2>🌟 Our Team 🌟</h2>
+  <div class="carousel-wrapper">
+    <button class="arrow left" (click)="scrollLeft('team')">&#10094;</button>
+    <div #teamContainer class="carousel">
+      <div class="member-card" *ngFor="let member of activeTeam">
+        <img [src]="member.photoFileName ? getBackendUrl(member.photoFileName) : 'img1.jpeg'"
+          alt="{{ member.fullName }}" />
+        <h4>{{ member.fullName }}</h4>
+        <p>{{ member.role }}</p>
+      </div>
+    </div>
+    <button class="arrow right" (click)="scrollRight('team')">&#10095;</button>
+  </div>
+</div>

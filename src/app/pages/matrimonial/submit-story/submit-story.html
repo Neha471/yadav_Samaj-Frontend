@@ -1,0 +1,22 @@
+<div class="submit-story-container">
+  <h2>Share Your Happy Story 💖</h2>
+
+  <form #storyForm="ngForm" (ngSubmit)="submitStory(storyForm)">
+    <div>
+      <label for="coupleName">Couple Name:</label>
+      <input type="text" id="coupleName" name="coupleName" ngModel required />
+    </div>
+
+    <div>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" ngModel rows="4" required></textarea>
+    </div>
+
+    <div>
+      <label for="photo">Upload Photo (optional):</label>
+      <input type="file" id="photo" (change)="onFileSelected($event)" accept="image/*" />
+    </div>
+
+    <button type="submit" [disabled]="!storyForm.valid">Submit Story</button>
+  </form>
+</div>

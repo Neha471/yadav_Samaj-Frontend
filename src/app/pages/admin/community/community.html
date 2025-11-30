@@ -1,0 +1,48 @@
+<div class="admin-community">
+
+  <h2>Community Sections</h2>
+
+  <button (click)="selectSection({ title: '', description: '', active: true })" class="btn-primary">Add New
+    Section</button>
+
+  <!-- Section Form -->
+  <div *ngIf="selectedSection" class="section-form">
+    <h3>{{ selectedSection.id ? 'Edit Section' : 'Add Section' }}</h3>
+    <label>Title:</label>
+    <input [(ngModel)]="selectedSection.title" placeholder="Section Title" />
+
+    <label>Description:</label>
+    <textarea [(ngModel)]="selectedSection.description" placeholder="Section Description"></textarea>
+
+    <label>Image:</label>
+    <input type="file" (change)="onImageChange($event)" />
+    <img *ngIf="selectedSection.imageUrl" [src]="getPhotoUrl(selectedSection)" alt="Preview" width="150" />
+
+    <button (click)="saveSection()" class="btn-primary">Save</button>
+    <button (click)="cancelEdit()" class="btn-secondary">Cancel</button>
+  </div>
+
+  <!-- Sections Table -->
+  <table class="sections-table" *ngIf="sections.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let section of sections">
+        <td>{{ section.title }}</td>
+        <td>{{ section.description }}</td>
+        <td><img *ngIf="section.imageUrl" [src]="getPhotoUrl(section)" width="100" /></td>
+        <td>
+          <button (click)="selectSection(section)" class="btn-primary">Edit</button>
+          <button (click)="deleteSection(section)" class="btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

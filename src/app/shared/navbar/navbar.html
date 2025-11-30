@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <div class="logo">Yadav Samaj</div>
+  <div class="logo">
+    <img src="yadavsamajlogo.jpg" alt="Logo">
+    <span>Yadav Community</span>
+  </div>
+
+  <!-- Hamburger menu for mobile -->
+  <div class="hamburger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul [class.open]="isMenuOpen" class="nav-links">
+    <!-- Always visible links -->
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+
+    <!-- Links for logged-in users -->
+    <ng-container *ngIf="loggedInUser; else guestLinks">
+      <li class="welcome-msg">Welcome, {{ loggedInUser.fullName }}</li>
+      <li>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </li>
+
+      <!-- Status tab for logged-in non-admin users -->
+      <li *ngIf="showStatusTab">
+        <a routerLink="/status">
+          Status
+          <span class="status-indicator" [ngClass]="{
+            'pending': status === 'PENDING',
+            'approved': approved && !paymentDone,
+            'paid': paymentDone
+          }">
+            {{ approved ? (paymentDone ? 'PAID' : 'APPROVED') : 'PENDING' }}
+          </span>
+        </a>
+      </li>
+    </ng-container>
+
+    <!-- Links for guests -->
+    <ng-template #guestLinks>
+      <li><a routerLink="/membership-register" routerLinkActive="active">Membership Register</a></li>
+      <li><a routerLink="/matrimonial-register" routerLinkActive="active">Matrimonial Register</a></li>
+<li><a routerLink="/user-support" routerLinkActive="active">Support</a></li>
+      <li><a routerLink="/status" routerLinkActive="active">Status</a></li>
+      <!-- <li><a routerLink="/login" routerLinkActive="active">Login</a></li> -->
+    </ng-template>
+  </ul>
+</nav>

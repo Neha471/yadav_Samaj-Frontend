@@ -1,0 +1,63 @@
+<div class="donation-container">
+  <!-- Tabs -->
+  <div class="tabs">
+    <button [class.active]="activeTab === 'donate'" (click)="activeTab='donate'">Donate</button>
+    <button [class.active]="activeTab === 'history'" (click)="activeTab='history'">History</button>
+  </div>
+
+  <!-- ✅ Success Alert -->
+  <div *ngIf="showSuccessAlert" class="alert-success">
+    {{ successMessage }}
+  </div>
+
+  <!-- 💰 Donate Form -->
+  <div *ngIf="activeTab === 'donate'" class="donate-tab">
+    <h3>Make a Donation</h3>
+
+    <form (ngSubmit)="submitDonation()">
+      <div class="form-group">
+        <label>Name *</label>
+        <input type="text" [(ngModel)]="donation.name" name="name" required placeholder="Your Name" />
+      </div>
+
+      <div class="form-group">
+        <label>Amount *</label>
+        <input type="number" [(ngModel)]="donation.amount" name="amount" required min="1"
+          placeholder="Donation Amount" />
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea [(ngModel)]="donation.message" name="message" placeholder="Optional message"></textarea>
+      </div>
+
+      <button type="submit">Donate</button>
+    </form>
+  </div>
+
+  <!-- 📜 Admin Donations History -->
+  <div *ngIf="activeTab === 'history'" class="history-tab">
+    <h3>Donations Added by Admin</h3>
+
+    <table *ngIf="adminDonations.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of adminDonations; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ d.name }}</td>
+          <td>{{ d.amount | currency:'INR' }}</td>
+          <td>{{ d.message }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="adminDonations.length === 0">No admin donations available yet.</p>
+  </div>
+</div>

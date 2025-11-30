@@ -1,0 +1,17 @@
+<div class="admin-login-container">
+  <h2>Admin Login (OTP)</h2>
+
+  <div *ngIf="step === 1">
+    <label>Email or Mobile:</label>
+    <input [(ngModel)]="emailOrMobile" placeholder="Enter email or mobile" />
+    <button (click)="sendOtp()">Send OTP</button>
+  </div>
+
+  <div *ngIf="step === 2">
+    <label>Enter OTP:</label>
+    <input [(ngModel)]="otp" maxlength="6" placeholder="Enter OTP" />
+    <button (click)="verifyOtp()">Verify OTP</button>
+  </div>
+
+  <p>{{ message }}</p>
+</div>

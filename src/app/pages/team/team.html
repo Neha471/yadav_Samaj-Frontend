@@ -1,0 +1,19 @@
+<h2>Our Team</h2>
+
+<div class="team-list">
+  <div *ngFor="let member of members" class="team-item">
+    <div class="team-image">
+      <img *ngIf="member.photoFileName; else noImage" [src]="getSafeImageUrl(member.photoFileName)"
+        alt="{{ member.fullName }}" />
+      <ng-template #noImage>
+        <img src="default-profile.png" alt="Default Profile" />
+      </ng-template>
+    </div>
+
+    <div class="team-details">
+      <h3>{{ member.fullName }}</h3>
+      <p class="role">{{ member.role }}</p>
+      <p class="about">{{ member.about }}</p>
+    </div>
+  </div>
+</div>

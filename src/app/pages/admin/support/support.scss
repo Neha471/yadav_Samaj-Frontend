@@ -1,0 +1,137 @@
+.support-admin {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fb, #eef1f6);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .message-card {
+    background: #fff;
+    border-left: 5px solid #0d6efd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    &.resolved {
+      border-left-color: #198754; // green
+      opacity: 0.95;
+
+      .tag {
+        background: #d1f7dc;
+        color: #198754;
+      }
+    }
+
+    h4 {
+      font-size: 18px;
+      color: #212529;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .tag {
+        background: #ffe8a3;
+        color: #856404;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+
+    p {
+      color: #555;
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .reply {
+      background: #f8f9fa;
+      padding: 10px 15px;
+      border-left: 4px solid #198754;
+      border-radius: 6px;
+      font-style: italic;
+      margin-top: 10px;
+      color: #198754;
+    }
+
+    .reply-box {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: #0d6efd;
+          box-shadow: 0 0 4px rgba(13, 110, 253, 0.2);
+        }
+      }
+
+      button {
+        align-self: flex-end;
+        background: linear-gradient(90deg, #0d6efd, #6f42c1);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(90deg, #6610f2, #d63384);
+        }
+      }
+    }
+
+    .delete-btn {
+      margin-top: 10px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      float: right;
+
+      &:hover {
+        background: #b02a37;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="support-admin">
+  <h2>Support Messages</h2>
+
+  <div *ngFor="let msg of messages" class="message-card" [class.resolved]="msg.resolved">
+    <h4>{{ msg.subject }} <span *ngIf="msg.resolved" class="tag">Resolved</span></h4>
+    <p><b>{{ msg.name }}</b> ({{ msg.email }})</p>
+    <p>{{ msg.message }}</p>
+
+    <div *ngIf="msg.reply">
+      <p class="reply"><b>Reply:</b> {{ msg.reply }}</p>
+    </div>
+
+    <div *ngIf="!msg.resolved" class="reply-box">
+      <textarea [(ngModel)]="replyText[msg.id]" placeholder="Type your reply..."></textarea>
+      <button (click)="sendReply(msg.id)">Send Reply</button>
+    </div>
+
+    <button class="delete-btn" (click)="deleteMessage(msg.id)">Delete</button>
+  </div>
+</div>
