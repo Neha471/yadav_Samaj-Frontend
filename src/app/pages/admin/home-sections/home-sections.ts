@@ -28,10 +28,18 @@ export class HomeSectionsComponent implements OnInit {
   newBannerTitle = '';
   newBannerDescription = '';
 
+     // Cards
+  cards: HomeSection[] = [];
+  newCardFile?: File;
+  newCardFilePreview: string = '';
+  newCardTitle = '';
+  newCardDescription = '';
+
   constructor(private service: HomeSectionService, private http: HttpClient, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.loadSections();
+     this.loadCards();
   }
 
   loadSections() {
@@ -156,6 +164,90 @@ updateHomeSection(section: HomeSection) {
   deleteSection(id: number) {
     if (confirm('Delete this section?')) {
       this.service.deleteSection(id).subscribe(() => this.loadSections());
+    }
+  }
+
+  // --- Cards Section ---
+  loadCards() {
+    this.service.getSections().subscribe({
+      next: data => {
+        this.cards = data
+          .filter(s => s.type === 'CARD')
+          .map(c => ({
+            ...c,
+            imageUrl: c.imageUrl ? this.getImageUrl(c.imageUrl) : ''
+          }));
+      },
+      error: err => console.error(err)
+    });
+  }
+
+  onCardFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.newCardFile = file;
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.newCardFilePreview = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  removeCardFile() {
+    this.newCardFile = undefined;
+    this.newCardFilePreview = '';
+  }
+
+  addCard() {
+    if (!this.newCardFile || !this.newCardTitle.trim()) {
+      Swal.fire('Warning', 'Please select an image and enter a title', 'warning');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('type', 'CARD');
+    formData.append('title', this.newCardTitle);
+    if (this.newCardDescription.trim()) formData.append('description', this.newCardDescription);
+    formData.append('image', this.newCardFile);
+
+    this.service.addSection(formData).subscribe({
+      next: () => {
+        this.loadCards();
+        this.newCardFile = undefined;
+        this.newCardFilePreview = '';
+        this.newCardTitle = '';
+        this.newCardDescription = '';
+        Swal.fire('Success', 'Card added!', 'success');
+      },
+      error: err => console.error(err)
+    });
+  }
+
+  onCardUpdateFileChange(event: any, card: HomeSection) {
+    const file = event.target.files[0];
+    if (file) (card as any).newImage = file;
+  }
+
+  updateCard(card: HomeSection) {
+    const formData = new FormData();
+    if (card.title) formData.append('title', card.title);
+    if (card.description) formData.append('description', card.description);
+    if ((card as any).newImage) formData.append('file', (card as any).newImage);
+
+    this.service.updateSection(card.id, formData).subscribe({
+      next: () => {
+        this.loadCards();
+        delete (card as any).newImage;
+        Swal.fire('Success', 'Card updated!', 'success');
+      },
+      error: err => Swal.fire('Error', 'Failed to update card', 'error')
+    });
+  }
+
+  deleteCard(id: number) {
+    if (confirm('Delete this card?')) {
+      this.service.deleteSection(id).subscribe(() => this.loadCards());
     }
   }
 }

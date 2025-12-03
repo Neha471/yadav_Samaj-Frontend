@@ -29,7 +29,30 @@
     <button class="btn btn-success" (click)="addMultipleBanners()">Add Banners</button>
   </div>
 
-  <!-- Existing Sections -->
+  <!-- Add New Card Section -->
+  <div class="add-cards mb-4 p-3 border rounded">
+    <h5>Add New Card</h5>
+
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="newCardTitle" placeholder="Card Title" class="form-control">
+    </div>
+
+    <div class="mb-2">
+      <input type="text" [(ngModel)]="newCardDescription" placeholder="Card Description" class="form-control">
+    </div>
+
+    <div class="mb-2">
+      <input type="file" (change)="onCardFileChange($event)">
+    </div>
+
+    <div class="preview mb-2" *ngIf="newCardFilePreview">
+      <img [src]="newCardFilePreview" alt="preview" class="img-thumbnail" />
+      <button class="btn btn-sm btn-danger mt-1" (click)="removeCardFile()">Remove</button>
+    </div>
+
+    <button class="btn btn-success" (click)="addCard()">Add Card</button>
+  </div>
+
 <!-- Existing Sections -->
 <div class="row">
   <div class="col-md-4 mb-3" *ngFor="let s of sections">
