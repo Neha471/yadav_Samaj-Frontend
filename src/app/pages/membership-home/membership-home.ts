@@ -41,7 +41,7 @@ modalImages: { imageUrl: string, title?: string, description?: string }[] = [];
 
 
   referralLink: string = '';
-  imageBaseUrl = 'http://yaduvanshisangathan.cloud';
+  imageBaseUrl = 'https://yaduvanshisangathan.cloud';
 
   // For profile update
   user: MembershipUser = {} as any;
@@ -71,7 +71,7 @@ modalImages: { imageUrl: string, title?: string, description?: string }[] = [];
     const phone = localStorage.getItem('loggedInPhone');
     if (!phone) return;
 
-    this.http.get<any>(`http://yaduvanshisangathan.cloud/api/membership/details/${phone}`).subscribe({
+    this.http.get<any>(`https://yaduvanshisangathan.cloud/api/membership/details/${phone}`).subscribe({
       next: data => {
         this.member = data;
         this.referralLink = `${window.location.origin}/register?ref=${data.referralCode || ''}`;
@@ -128,13 +128,13 @@ updateProfile() {
   }
 
   loadAnnouncements(): void {
-    this.http.get<any[]>(`http://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_ANNOUNCEMENT`).subscribe({
+    this.http.get<any[]>(`https://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_ANNOUNCEMENT`).subscribe({
       next: data => this.announcements = data,
       error: err => console.error(err)
     });
   }
   loadPhotos(): void {
-  this.http.get<any[]>(`http://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_PHOTO`).subscribe({
+  this.http.get<any[]>(`https://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_PHOTO`).subscribe({
     next: data => this.photos = data,
     error: err => console.error('Failed to load photos', err)
   });
@@ -152,21 +152,21 @@ loadTeamMembers() {
 
 
   loadEvents(): void {
-    this.http.get<any[]>(`http://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_EVENT`).subscribe({
+    this.http.get<any[]>(`https://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_EVENT`).subscribe({
       next: data => this.events = data,
       error: err => console.error(err)
     });
   }
 
   loadActivities(): void {
-    this.http.get<any[]>(`http://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_ACTIVITY`).subscribe({
+    this.http.get<any[]>(`https://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_ACTIVITY`).subscribe({
       next: data => this.activities = data,
       error: err => console.error(err)
     });
   }
 
   loadBanners(): void {
-    this.http.get<any[]>(`http://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_BANNER`).subscribe({
+    this.http.get<any[]>(`https://yaduvanshisangathan.cloud/api/home-sections/type/MEMBERSHIP_BANNER`).subscribe({
       next: data => this.banners = data,
       error: err => console.error(err)
     });

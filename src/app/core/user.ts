@@ -36,7 +36,7 @@ export type AdminUser = User & { type: UserType };
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api';
 
   private loggedInUserSubject = new BehaviorSubject<User | null>(
     JSON.parse(localStorage.getItem('loggedInUser') || 'null')
@@ -56,8 +56,8 @@ export class UserService {
 
   verifyOtp(phone: string, otp: string, type: UserType) {
   const url = type === 'membership'
-    ? 'http://yaduvanshisangathan.cloud/api/membership/verify-otp'
-    : 'http://yaduvanshisangathan.cloud/api/matrimonial/verify-otp';
+    ? 'https://yaduvanshisangathan.cloud/api/membership/verify-otp'
+    : 'https://yaduvanshisangathan.cloud/api/matrimonial/verify-otp';
   return this.http.post<User>(url, { phone, otp }); // <-- typed as User
 }
 

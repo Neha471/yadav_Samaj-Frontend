@@ -17,7 +17,7 @@ export class AdminSearchComponent {
   result: any = null;
   errorMsg: string = '';
 
-  backendUrl = 'http://yaduvanshisangathan.cloud/api/admin/search';
+  backendUrl = 'https://yaduvanshisangathan.cloud/api/admin/search';
 
   constructor(private http: HttpClient) {}
 

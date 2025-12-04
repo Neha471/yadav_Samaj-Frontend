@@ -31,7 +31,7 @@ export class MembershipSectionsComponent implements OnInit {
 selectedFiles: File[] = [];
 
 
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/home-sections';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/home-sections';
 
   constructor(private http: HttpClient) {}
 
@@ -134,7 +134,7 @@ addSection() {
 
   getImageUrl(section: any) {
     return section.imageUrls && section.imageUrls.length > 0
-      ? `http://yaduvanshisangathan.cloud${section.imageUrls[0]}`
+      ? `https://yaduvanshisangathan.cloud${section.imageUrls[0]}`
       : 'default-section.jpg';
   }
 }

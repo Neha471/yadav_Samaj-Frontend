@@ -22,7 +22,7 @@ export class AdminFaqsComponent implements OnInit {
   newFaq: FAQ = { title: '', description: '', type: 'FAQ', active: true };
   editFaq: FAQ | null = null;
 
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/home-sections/faqs'; // correct base URL
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/home-sections/faqs'; // correct base URL
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +31,7 @@ export class AdminFaqsComponent implements OnInit {
   }
 
 loadFaqs() {
-  this.http.get<FAQ[]>('http://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ')
+  this.http.get<FAQ[]>('https://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ')
     .subscribe({
       next: data => this.faqs = data,
       error: err => console.warn('Failed to fetch FAQs', err)

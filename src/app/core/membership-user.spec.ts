@@ -24,7 +24,7 @@ export interface MembershipUser {
   providedIn: 'root'
 })
 export class MembershipUserService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/membership';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/membership';
 
   constructor(private http: HttpClient) {}
 

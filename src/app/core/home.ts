@@ -6,7 +6,7 @@ import { HomeSection } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class HomeSectionService {
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/home-sections';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/home-sections';
 
   constructor(private http: HttpClient) {}
 

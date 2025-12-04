@@ -8,7 +8,7 @@ import { HomeSection } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class AdminService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api';
 
   constructor(private http: HttpClient) {}
 

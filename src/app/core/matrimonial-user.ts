@@ -68,7 +68,7 @@
     providedIn: 'root'
   })
   export class MatrimonialUserService {
-    private baseUrl = 'http://yaduvanshisangathan.cloud/api/matrimonial';
+    private baseUrl = 'https://yaduvanshisangathan.cloud/api/matrimonial';
 
     constructor(private http: HttpClient) {}
 
@@ -147,7 +147,7 @@
 
     selectPlan(userId: number, plan: string) {
     return this.http.post(
-      `http://yaduvanshisangathan.cloud/api/matrimonial/select-plan/${userId}`,
+      `https://yaduvanshisangathan.cloud/api/matrimonial/select-plan/${userId}`,
       { plan }
     );
   }

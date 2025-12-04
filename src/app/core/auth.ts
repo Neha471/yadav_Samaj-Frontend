@@ -5,7 +5,7 @@ import { lastValueFrom, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/users';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/users';
   private userKey = 'loggedUser'; // store all info (name, role, etc.)
 
   constructor(private http: HttpClient) {}
@@ -20,7 +20,7 @@ export class AuthService {
 
   verifyOtp(phone: string, otp: string): Promise<any> {
     return lastValueFrom(
-      this.http.post<any>('http://yaduvanshisangathan.cloud/api/matrimonial/verify-otp', { phone, otp })
+      this.http.post<any>('https://yaduvanshisangathan.cloud/api/matrimonial/verify-otp', { phone, otp })
     );
   }
 
@@ -50,7 +50,7 @@ export class AuthService {
 
   // Check if payment is done
   checkPayment(phone: string): Observable<any> {
-    return this.http.get(`http://yaduvanshisangathan.cloud/api/payments/amount/${phone}`);
+    return this.http.get(`https://yaduvanshisangathan.cloud/api/payments/amount/${phone}`);
   }
 
   clearUser(): void {

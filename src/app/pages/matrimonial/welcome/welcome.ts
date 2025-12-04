@@ -78,7 +78,7 @@ async loadHappyStories() {
 
   async loadFaqs() {
     try {
-      const res = await fetch('http://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ');
+      const res = await fetch('https://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ');
       if (!res.ok) throw new Error('FAQ endpoint not found');
       const data = await res.json();
       this.faqs = Array.isArray(data) ? data : [];
@@ -90,7 +90,7 @@ async loadHappyStories() {
 
   async loadCommunitySection() {
     try {
-      const res = await fetch('http://yaduvanshisangathan.cloud/api/home-sections/active/type/SAMAJ_BANNER');
+      const res = await fetch('https://yaduvanshisangathan.cloud/api/home-sections/active/type/SAMAJ_BANNER');
       if (!res.ok) throw new Error('Community section not found');
       const data = await res.json();
       this.communitySection = Array.isArray(data) && data.length > 0 ? data[0] : null;
@@ -115,12 +115,12 @@ loadLeadership() {
 }
 
   getLeaderPhotoUrl(leader: HomeSection) {
-    return leader.imageUrl ? `http://yaduvanshisangathan.cloud${leader.imageUrl}` : 'default-profile.jpg';
+    return leader.imageUrl ? `https://yaduvanshisangathan.cloud${leader.imageUrl}` : 'default-profile.jpg';
   }
 
   getPhotoUrl(user: MatrimonialUser) {
     return user.photoFileName
-      ? `http://yaduvanshisangathan.cloud${user.photoFileName}`
+      ? `https://yaduvanshisangathan.cloud${user.photoFileName}`
       : 'assets/images/default-user.png';
   }
 

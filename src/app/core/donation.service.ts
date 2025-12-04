@@ -11,7 +11,7 @@ export interface AdminDonation {
 
 @Injectable({ providedIn: 'root' })
 export class DonationService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/donations/admin';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/donations/admin';
 
   constructor(private http: HttpClient) {}
 

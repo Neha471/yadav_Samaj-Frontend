@@ -10,7 +10,7 @@ export class ReferralComponent implements OnInit {
   referralCode: string = '';
   referralLink: string = '';
   usedCount: number = 0;
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/membership';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/membership';
 
   constructor(private http: HttpClient) {}
 

@@ -35,6 +35,6 @@ export class HappyStoryComponent implements OnInit {
   }
 
   getPhotoUrl(fileName: string): string {
-    return `http://yaduvanshisangathan.cloud/uploads/${fileName}`;
+    return `https://yaduvanshisangathan.cloud/uploads/${fileName}`;
   }
 }

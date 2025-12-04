@@ -65,7 +65,7 @@ export interface VerifyOtpResponse {
   providedIn: 'root'
 })
 export class MembershipUserService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/membership';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/membership';
 
   constructor(private http: HttpClient) {}
 
@@ -118,7 +118,7 @@ export class MembershipUserService {
 //     formData.append('photo', photo);
 //   }
 
-//   return this.http.put(`http://yaduvanshisangathan.cloud/api/membership/update/${id}`, formData);
+//   return this.http.put(`https://yaduvanshisangathan.cloud/api/membership/update/${id}`, formData);
 // }
 
 

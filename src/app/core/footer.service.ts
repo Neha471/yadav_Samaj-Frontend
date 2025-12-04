@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class FooterService {
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/footer'; // adjust to your backend URL
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/footer'; // adjust to your backend URL
 
   constructor(private http: HttpClient) {}
 

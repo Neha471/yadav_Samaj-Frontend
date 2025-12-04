@@ -26,7 +26,7 @@ export class DonationComponent implements OnInit {
   donation: Donation = { name: '', amount: 0, message: '' };
   adminDonations: Donation[] = [];
 
-  backendUrl = 'http://yaduvanshisangathan.cloud/api/donations';
+  backendUrl = 'https://yaduvanshisangathan.cloud/api/donations';
   showSuccessAlert = false;
   successMessage = '';
 

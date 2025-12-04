@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class AdminHappyStoryComponent implements OnInit {
   stories: any[] = [];
   newStory = { coupleName: '', message: '', photo: null as File | null };
-  apiUrl = 'http://yaduvanshisangathan.cloud/api/happy-stories';
+  apiUrl = 'https://yaduvanshisangathan.cloud/api/happy-stories';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminMemberService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api';
 
   constructor(private http: HttpClient) {}
 

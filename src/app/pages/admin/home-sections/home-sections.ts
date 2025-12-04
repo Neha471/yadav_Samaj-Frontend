@@ -21,7 +21,7 @@ interface FilePreview {
 })
 export class HomeSectionsComponent implements OnInit {
   sections: HomeSection[] = [];
-  imageBaseUrl = 'http://yaduvanshisangathan.cloud';
+  imageBaseUrl = 'https://yaduvanshisangathan.cloud';
 
   // For adding multiple banners
   multipleFiles: FilePreview[] = [];

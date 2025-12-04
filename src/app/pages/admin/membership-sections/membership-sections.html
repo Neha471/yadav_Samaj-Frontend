@@ -42,13 +42,13 @@
     <div class="images">
       <!-- Multiple images for photo sections -->
       <ng-container *ngIf="type === 'MEMBERSHIP_PHOTO'">
-        <img *ngFor="let img of section.imageUrls" [src]="'http://yaduvanshisangathan.cloud' + img" alt="Photo Section Image" />
+        <img *ngFor="let img of section.imageUrls" [src]="'https://yaduvanshisangathan.cloud' + img" alt="Photo Section Image" />
       </ng-container>
 
       <!-- Single image for other sections -->
       <ng-container *ngIf="type !== 'MEMBERSHIP_PHOTO'">
         <img [src]="section.imageUrls && section.imageUrls.length > 0
-            ? 'http://yaduvanshisangathan.cloud' + section.imageUrls[0]
+            ? 'https://yaduvanshisangathan.cloud' + section.imageUrls[0]
             : 'default-section.jpg'" alt="Section Image" />
       </ng-container>
     </div>

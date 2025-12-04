@@ -35,7 +35,7 @@ export class SubmitStoryComponent {
       formData.append('photo', this.selectedFile);
     }
 
-    this.http.post('http://yaduvanshisangathan.cloud/api/happy-stories/add', formData)
+    this.http.post('https://yaduvanshisangathan.cloud/api/happy-stories/add', formData)
       .subscribe({
         next: (response) => {
           console.log('✅ Story submitted successfully:', response);

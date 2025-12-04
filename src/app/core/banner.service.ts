@@ -15,11 +15,11 @@ export interface Banner {
   providedIn: 'root',
 })
 export class BannerService {
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/home-sections/banner';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/home-sections/banner';
 
   constructor(private http: HttpClient) {}
 
  getBanners(): Observable<Banner[]> {
-  return this.http.get<Banner[]>('http://yaduvanshisangathan.cloud/api/home-sections/banner');
+  return this.http.get<Banner[]>('https://yaduvanshisangathan.cloud/api/home-sections/banner');
 }
 }

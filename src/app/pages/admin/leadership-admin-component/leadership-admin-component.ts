@@ -92,6 +92,6 @@ export class LeadershipAdminComponent implements OnInit {
   }
 
   getImageUrl(section: HomeSection) {
-    return section.imageUrl ? `http://yaduvanshisangathan.cloud${section.imageUrl}` : 'assets/images/default-leader.jpg';
+    return section.imageUrl ? `https://yaduvanshisangathan.cloud${section.imageUrl}` : 'assets/images/default-leader.jpg';
   }
 }

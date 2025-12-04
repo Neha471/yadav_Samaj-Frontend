@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
 
       // Preview photo
       if (this.user.photoPath) {
-        this.photoPreview = `http://yaduvanshisangathan.cloud/uploads/${this.user.photoPath}`;
+        this.photoPreview = `https://yaduvanshisangathan.cloud/uploads/${this.user.photoPath}`;
       }
     } catch (err) {
       console.error('Error loading profile', err);

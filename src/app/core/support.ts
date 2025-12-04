@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SupportService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/support';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/support';
 
   constructor(private http: HttpClient) {}
 

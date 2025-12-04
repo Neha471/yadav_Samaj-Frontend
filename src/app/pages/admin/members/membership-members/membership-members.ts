@@ -27,7 +27,7 @@ export class Membership_MembersComponent implements OnInit {
   editingMember: MembershipUser | null = null;
   selectedImage: string | null = null;
 
-  backendUrl = 'http://yaduvanshisangathan.cloud'; // ✅ your Spring Boot base URL
+  backendUrl = 'https://yaduvanshisangathan.cloud'; // ✅ your Spring Boot base URL
 
   constructor(private adminService: AdminMemberService) {}
 

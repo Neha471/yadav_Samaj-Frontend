@@ -27,7 +27,7 @@ export class MatrimonialHomeComponent implements OnInit {
   ads: HomeSection[] = [];
 selectedUser?: any;
 fullImageUrl?: string;
-  imageBaseUrl = 'http://yaduvanshisangathan.cloud';
+  imageBaseUrl = 'https://yaduvanshisangathan.cloud';
 activeTab: 'home' | 'active' | 'premium' | 'stories' | 'profile' = 'home';
 
   constructor(

@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   imagePreview: string | ArrayBuffer | null = null;
   originalPhone: string = ''; // store original phone
 
-  private baseUrl = 'http://yaduvanshisangathan.cloud';
+  private baseUrl = 'https://yaduvanshisangathan.cloud';
 
   constructor(private membershipUserService: MembershipUserService) {}
 

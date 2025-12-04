@@ -16,7 +16,7 @@ export class MembershipRegisterComponent {
   selectedFile: File | null = null;
   imagePreview: string | ArrayBuffer | null = null;
 
-  api = 'http://yaduvanshisangathan.cloud/api/membership';
+  api = 'https://yaduvanshisangathan.cloud/api/membership';
 
 
   membershipPlans = [

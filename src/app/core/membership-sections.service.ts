@@ -15,7 +15,7 @@ export interface HomeSection {
 
 @Injectable({ providedIn: 'root' })
 export class MembershipSectionsService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/home-sections';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/home-sections';
 
   constructor(private http: HttpClient) {}
 

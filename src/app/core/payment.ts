@@ -15,7 +15,7 @@
 
   @Injectable({ providedIn: 'root' })
   export class PaymentService {
-    private baseUrl = 'http://yaduvanshisangathan.cloud/api/payments';
+    private baseUrl = 'https://yaduvanshisangathan.cloud/api/payments';
 
     constructor(private http: HttpClient) {}
 

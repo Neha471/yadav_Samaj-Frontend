@@ -19,7 +19,7 @@ export class MatrimonialSectionsComponent implements OnInit {
   selectedFile: File | null = null;
 
   sections: any[] = [];
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/home-sections';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/home-sections';
 
   constructor(private http: HttpClient) {}
 

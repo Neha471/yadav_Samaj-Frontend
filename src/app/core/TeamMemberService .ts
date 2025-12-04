@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TeamService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/team';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/team';
 
   constructor(private http: HttpClient) {}
 

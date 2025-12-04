@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   stories: HappyStory[] = [];
   activeMembers: MatrimonialUser[] = [];
   banners: Banner[] = [];
-  imageBaseUrl = 'http://yaduvanshisangathan.cloud/';
+  imageBaseUrl = 'https://yaduvanshisangathan.cloud/';
   currentIndex = 0;
   slideInterval: any;
   imageHeights: number[] = [];
   activeTeam: TeamMember[] = [];
-  backendUrl = 'http://yaduvanshisangathan.cloud';
+  backendUrl = 'https://yaduvanshisangathan.cloud';
 
   @ViewChild('storiesContainer') storiesContainer!: ElementRef<HTMLDivElement>;
   @ViewChild('membersContainer') membersContainer!: ElementRef<HTMLDivElement>;

@@ -17,7 +17,7 @@ export class HelpComponent implements OnInit {
   }
 async loadFaqs() {
   try {
-    const res = await fetch('http://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ');
+    const res = await fetch('https://yaduvanshisangathan.cloud/api/home-sections/active/type/FAQ');
     if (!res.ok) throw new Error('FAQ endpoint not found');
     const data = await res.json();
     this.faqs = Array.isArray(data) ? data : [];

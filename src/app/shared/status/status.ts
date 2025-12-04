@@ -30,7 +30,7 @@ export class StatusComponent {
     }
 
     // Matrimonial status API
-    const url = `http://yaduvanshisangathan.cloud/api/matrimonial/status/${trimmedPhone}`;
+    const url = `https://yaduvanshisangathan.cloud/api/matrimonial/status/${trimmedPhone}`;
 
     this.http.get<any>(url).subscribe({
       next: (res) => {

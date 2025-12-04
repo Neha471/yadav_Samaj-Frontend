@@ -72,7 +72,7 @@
 <section class="happy-stories">
   <h2>Happy Stories</h2>
   <div class="story-card" *ngFor="let story of happyStories">
-    <img *ngIf="story.photoUrl" [src]="'http://yaduvanshisangathan.cloud' + story.photoUrl" alt="{{ story.coupleName }}">
+    <img *ngIf="story.photoUrl" [src]="'https://yaduvanshisangathan.cloud' + story.photoUrl" alt="{{ story.coupleName }}">
     <h3>{{ story.coupleName }}</h3>
     <p>{{ story.message }}</p>
   </div>
@@ -84,7 +84,7 @@
 <div class="leadership-container" *ngIf="leadershipSections.length > 0">
   <h2>Our Leadership</h2>
   <div class="leader" *ngFor="let leader of leadershipSections">
-    <img [src]="'http://yaduvanshisangathan.cloud' + leader.imageUrl" alt="{{ leader.title }}" />
+    <img [src]="'https://yaduvanshisangathan.cloud' + leader.imageUrl" alt="{{ leader.title }}" />
     <h3>{{ leader.title }}</h3>
     <p>{{ leader.description }}</p>
   </div>

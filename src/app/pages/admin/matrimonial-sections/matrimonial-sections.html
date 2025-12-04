@@ -33,7 +33,7 @@
   <!-- Display Existing Sections -->
   <div class="section-list" *ngIf="sections.length > 0; else noData">
     <div class="section-card" *ngFor="let s of sections">
-      <img *ngIf="s.imageUrl" [src]="'http://yaduvanshisangathan.cloud' + s.imageUrl" alt="{{ s.title }}" class="section-image" />
+      <img *ngIf="s.imageUrl" [src]="'https://yaduvanshisangathan.cloud' + s.imageUrl" alt="{{ s.title }}" class="section-image" />
       <div class="section-info">
         <h3>{{ s.title }}</h3>
         <p>{{ s.description }}</p>

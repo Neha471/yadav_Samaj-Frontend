@@ -19,7 +19,7 @@ export class AdminLoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   sendOtp() {
-    this.http.post('http://yaduvanshisangathan.cloud/api/admin/send-otp', { emailOrMobile: this.emailOrMobile })
+    this.http.post('https://yaduvanshisangathan.cloud/api/admin/send-otp', { emailOrMobile: this.emailOrMobile })
       .subscribe({
         next: (res: any) => {
           this.message = res.message;
@@ -32,7 +32,7 @@ export class AdminLoginComponent {
   }
 
   verifyOtp() {
-    this.http.post('http://yaduvanshisangathan.cloud/api/admin/verify-otp', {
+    this.http.post('https://yaduvanshisangathan.cloud/api/admin/verify-otp', {
       emailOrMobile: this.emailOrMobile,
       otp: this.otp
     }).subscribe({

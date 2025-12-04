@@ -14,7 +14,7 @@ import { TeamService } from '../../core/TeamMemberService ';
 })
 export class TeamUserComponent implements OnInit {
   members: TeamMember[] = [];
-  imageBaseUrl: string = 'http://yaduvanshisangathan.cloud';
+  imageBaseUrl: string = 'https://yaduvanshisangathan.cloud';
 
   constructor(private teamService: TeamService, private sanitizer: DomSanitizer) {}
 

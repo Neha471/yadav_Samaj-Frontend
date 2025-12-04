@@ -93,6 +93,6 @@ async loadSections() {
   }
 
   getPhotoUrl(section: CommunitySection) {
-    return section.imageUrl ? `http://yaduvanshisangathan.cloud${section.imageUrl}` : 'assets/images/default-user.png';
+    return section.imageUrl ? `https://yaduvanshisangathan.cloud${section.imageUrl}` : 'assets/images/default-user.png';
   }
 }

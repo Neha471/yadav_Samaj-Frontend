@@ -19,7 +19,7 @@ export class TeamAdminComponent implements OnInit {
   editMode = false;
   editingId: number | null = null;
   editingPhotoUrl: string | null = null;
-  backendUrl = 'http://yaduvanshisangathan.cloud';
+  backendUrl = 'https://yaduvanshisangathan.cloud';
 
   constructor(private teamService: TeamService, private fb: FormBuilder) {
     this.form = this.fb.group({

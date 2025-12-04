@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class WalletService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/wallet';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/wallet';
 
   constructor(private http: HttpClient) {}
 

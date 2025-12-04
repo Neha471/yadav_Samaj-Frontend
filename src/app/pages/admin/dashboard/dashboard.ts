@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   loadDashboardStats(): void {
     this.loading = true;
-    this.http.get('http://yaduvanshisangathan.cloud/api/dashboard').subscribe({
+    this.http.get('https://yaduvanshisangathan.cloud/api/dashboard').subscribe({
       next: (data: any) => {
         this.dashboard = data;
         this.loading = false;
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   loadEarningsChart(): void {
-    this.http.get<any>(`http://yaduvanshisangathan.cloud/api/dashboard/earnings?type=${this.earningsType}`).subscribe({
+    this.http.get<any>(`https://yaduvanshisangathan.cloud/api/dashboard/earnings?type=${this.earningsType}`).subscribe({
       next: (res) => this.renderChart(res),
       error: (err) => console.error('Earnings chart load failed', err)
     });

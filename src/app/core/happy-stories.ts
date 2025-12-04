@@ -6,7 +6,7 @@ import { HappyStory } from './happy-story.model';
 
 @Injectable({ providedIn: 'root' })
 export class HappyStoryService {
-  private apiUrl = 'http://yaduvanshisangathan.cloud/api/happy-stories';
+  private apiUrl = 'https://yaduvanshisangathan.cloud/api/happy-stories';
 
   constructor(private http: HttpClient) {}
 

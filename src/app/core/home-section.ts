@@ -5,7 +5,7 @@ import { HomeSection } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class HomeSectionService {
-  private baseUrl = 'http://yaduvanshisangathan.cloud/api/home-sections';
+  private baseUrl = 'https://yaduvanshisangathan.cloud/api/home-sections';
 
   constructor(private http: HttpClient) {}
 
@@ -65,7 +65,7 @@ getBanners(): Observable<HomeSection[]> {
 
 
 getLeadership() {
-  return this.http.get<any[]>('http://yaduvanshisangathan.cloud/api/home-sections/leadership');
+  return this.http.get<any[]>('https://yaduvanshisangathan.cloud/api/home-sections/leadership');
 }
 
 
